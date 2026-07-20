@@ -1,18 +1,34 @@
 modern-e-commerce-marketplace-development (1)
-├─ drizzle.config.json
-├─ eslint.config.mjs
-├─ next-env.d.ts
-├─ next.config.ts
-├─ package.json
-├─ postcss.config.mjs
 ├─ public
 │  └─ sw.js
 ├─ src
 │  ├─ app
-│  │  ├─ account
+│  │  ├─ (account)
+│  │  │  └─ account
+│  │  │     └─ page.tsx
+│  │  ├─ (admin)
+│  │  │  └─ admin
+│  │  │     └─ page.tsx
+│  │  ├─ (auth)
+│  │  │  └─ auth
+│  │  │     └─ [mode]
+│  │  │        └─ page.tsx
+│  │  ├─ (public)
+│  │  │  ├─ cart
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ checkout
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ product
+│  │  │  │  └─ [slug]
+│  │  │  │     └─ page.tsx
+│  │  │  ├─ shop
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ support
+│  │  │  │  └─ page.tsx
 │  │  │  └─ page.tsx
-│  │  ├─ admin
-│  │  │  └─ page.tsx
+│  │  ├─ (seller)
+│  │  │  └─ seller
+│  │  │     └─ page.tsx
 │  │  ├─ api
 │  │  │  ├─ health
 │  │  │  │  └─ route.ts
@@ -22,45 +38,77 @@ modern-e-commerce-marketplace-development (1)
 │  │  │  │  └─ route.ts
 │  │  │  └─ support
 │  │  │     └─ route.ts
-│  │  ├─ auth
-│  │  │  └─ [mode]
-│  │  │     └─ page.tsx
-│  │  ├─ cart
-│  │  │  └─ page.tsx
-│  │  ├─ checkout
-│  │  │  └─ page.tsx
 │  │  ├─ error.tsx
 │  │  ├─ globals.css
 │  │  ├─ layout.tsx
 │  │  ├─ loading.tsx
 │  │  ├─ manifest.ts
 │  │  ├─ not-found.tsx
-│  │  ├─ page.tsx
-│  │  ├─ product
-│  │  │  └─ [slug]
-│  │  │     └─ page.tsx
 │  │  ├─ robots.ts
-│  │  ├─ seller
-│  │  │  └─ page.tsx
-│  │  ├─ shop
-│  │  │  └─ page.tsx
-│  │  ├─ sitemap.ts
-│  │  └─ support
-│  │     └─ page.tsx
+│  │  └─ sitemap.ts
+│  ├─ assets
 │  ├─ components
-│  │  ├─ account-page.tsx
-│  │  ├─ auth-page.tsx
-│  │  ├─ footer.tsx
-│  │  ├─ header.tsx
-│  │  ├─ home-page.tsx
-│  │  ├─ product-card.tsx
-│  │  ├─ product-detail.tsx
-│  │  ├─ pwa-register.tsx
-│  │  ├─ shop-page.tsx
-│  │  └─ store-provider.tsx
+│  │  ├─ account
+│  │  │  └─ account-page.tsx
+│  │  ├─ admin
+│  │  ├─ ai
+│  │  ├─ analytics
+│  │  ├─ animations
+│  │  ├─ auth
+│  │  │  └─ auth-page.tsx
+│  │  ├─ cart
+│  │  ├─ charts
+│  │  ├─ checkout
+│  │  ├─ common
+│  │  ├─ compare
+│  │  ├─ forms
+│  │  ├─ home
+│  │  │  └─ home-page.tsx
+│  │  ├─ layout
+│  │  │  ├─ footer.tsx
+│  │  │  └─ header.tsx
+│  │  ├─ modals
+│  │  ├─ product
+│  │  │  ├─ product-card.tsx
+│  │  │  └─ product-detail.tsx
+│  │  ├─ providers
+│  │  │  ├─ pwa-register.tsx
+│  │  │  └─ store-provider.tsx
+│  │  ├─ reviews
+│  │  ├─ search
+│  │  ├─ seller
+│  │  ├─ shop
+│  │  │  └─ shop-page.tsx
+│  │  ├─ ui
+│  │  └─ wishlist
+│  ├─ config
+│  ├─ constants
+│  ├─ contexts
 │  ├─ db
 │  │  ├─ index.ts
 │  │  └─ schema.ts
-│  └─ lib
-│     └─ catalog.ts
+│  ├─ emails
+│  ├─ helpers
+│  ├─ hooks
+│  ├─ lib
+│  │  └─ catalog.ts
+│  ├─ middleware
+│  ├─ providers
+│  ├─ schemas
+│  ├─ services
+│  ├─ store
+│  ├─ styles
+│  ├─ tests
+│  ├─ types
+│  ├─ utils
+│  ├─ validations
+│  └─ workers
+├─ drizzle.config.json
+├─ eslint.config.mjs
+├─ next-env.d.ts
+├─ next.config.ts
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+├─ project-hierarchy.txt
 └─ tsconfig.json

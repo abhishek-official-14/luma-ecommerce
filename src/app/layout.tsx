@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { StoreProvider } from "@/components/store-provider";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { PwaRegister } from "@/components/pwa-register";
+import { StoreProvider } from "@/components/providers/store-provider";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { PwaRegister } from "@/components/providers/pwa-register";
 import "./globals.css";
 
 export const metadata: Metadata = {

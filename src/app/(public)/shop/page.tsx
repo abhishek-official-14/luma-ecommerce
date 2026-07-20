@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ShopPage } from "@/components/shop-page";
+import { ShopPage } from "@/components/shop/shop-page";
 
 export const metadata: Metadata = { title: "Shop all", description: "Browse fashion, electronics, beauty, home and more from trusted brands and verified sellers." };
 

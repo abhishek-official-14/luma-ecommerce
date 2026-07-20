@@ -4,8 +4,8 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Check, ChevronDown, Filter, GitCompareArrows, Grid2X2, List, RotateCcw, SlidersHorizontal, Sparkles, X } from "lucide-react";
 import { categories, products } from "@/lib/catalog";
-import { ProductCard } from "./product-card";
-import { useStore } from "./store-provider";
+import { ProductCard } from "@/components/product/product-card";
+import { useStore } from "@/components/providers/store-provider";
 
 export function ShopPage({ initialQuery = "", initialCategory = "", initialBrand = "", deal = false }: { initialQuery?: string; initialCategory?: string; initialBrand?: string; deal?: boolean }) {
   const [category, setCategory] = useState(initialCategory.replace("Home & Living", "Home").replace("New & Now", ""));

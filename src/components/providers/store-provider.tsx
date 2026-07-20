@@ -34,15 +34,17 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [toast, setToast] = useState<Toast>(null);
 
   useEffect(() => {
-    try {
-      setCart(JSON.parse(localStorage.getItem("luma-cart") || "[]") as CartLine[]);
-      setWishlist(JSON.parse(localStorage.getItem("luma-wishlist") || "[]") as string[]);
-      setCompare(JSON.parse(localStorage.getItem("luma-compare") || "[]") as string[]);
-      setRecentlyViewed(JSON.parse(localStorage.getItem("luma-recent") || "[]") as string[]);
-    } catch {
-      localStorage.removeItem("luma-cart");
-    }
-    setHydrated(true);
+    window.queueMicrotask(() => {
+      try {
+        setCart(JSON.parse(localStorage.getItem("luma-cart") || "[]") as CartLine[]);
+        setWishlist(JSON.parse(localStorage.getItem("luma-wishlist") || "[]") as string[]);
+        setCompare(JSON.parse(localStorage.getItem("luma-compare") || "[]") as string[]);
+        setRecentlyViewed(JSON.parse(localStorage.getItem("luma-recent") || "[]") as string[]);
+      } catch {
+        localStorage.removeItem("luma-cart");
+      }
+      setHydrated(true);
+    });
   }, []);
 
   useEffect(() => {

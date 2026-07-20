@@ -8,7 +8,7 @@ import {
   ShieldCheck, Smartphone, Sparkles, Star, Truck, X, Zap,
 } from "lucide-react";
 import { brands, categories, products } from "@/lib/catalog";
-import { ProductCard } from "./product-card";
+import { ProductCard } from "@/components/product/product-card";
 
 const heroImage = "https://images.pexels.com/photos/33020911/pexels-photo-33020911.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=1000";
 const homeImage = "https://images.pexels.com/photos/29383227/pexels-photo-29383227.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1200&h=800";

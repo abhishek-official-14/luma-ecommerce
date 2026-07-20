@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Check, GitCompareArrows, Heart, ShoppingBag, Star } from "lucide-react";
 import type { Product } from "@/lib/catalog";
 import { formatPrice } from "@/lib/catalog";
-import { useStore } from "./store-provider";
+import { useStore } from "@/components/providers/store-provider";
 
 export function ProductCard({ product, compact = false }: { product: Product; compact?: boolean }) {
   const { addToCart, toggleWishlist, toggleCompare, wishlist, compare } = useStore();
