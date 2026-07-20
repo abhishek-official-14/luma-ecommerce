@@ -10,8 +10,8 @@ import {
 } from "lucide-react";
 import type { Product } from "@/lib/catalog";
 import { formatPrice, products } from "@/lib/catalog";
-import { ProductCard } from "./product-card";
-import { useStore } from "./store-provider";
+import { ProductCard } from "@/components/product/product-card";
+import { useStore } from "@/components/providers/store-provider";
 
 export function ProductDetail({ product }: { product: Product }) {
   const router = useRouter();

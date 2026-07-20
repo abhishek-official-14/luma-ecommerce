@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getProduct, products } from "@/lib/catalog";
-import { ProductDetail } from "@/components/product-detail";
+import { ProductDetail } from "@/components/product/product-detail";
 
 export function generateStaticParams() { return products.map((product) => ({ slug: product.slug })); }
 

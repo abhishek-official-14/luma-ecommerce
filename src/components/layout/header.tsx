@@ -8,7 +8,7 @@ import {
   Sparkles, UserRound, X, Home, Grid2X2, Bell, Package, CircleHelp,
 } from "lucide-react";
 import { products } from "@/lib/catalog";
-import { useStore } from "./store-provider";
+import { useStore } from "@/components/providers/store-provider";
 
 const nav = ["New & Now", "Fashion", "Electronics", "Beauty", "Home & Living", "Footwear", "Gifts"];
 

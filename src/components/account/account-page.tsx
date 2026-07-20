@@ -9,8 +9,8 @@ import {
   WalletCards, X,
 } from "lucide-react";
 import { products, formatPrice } from "@/lib/catalog";
-import { ProductCard } from "./product-card";
-import { useStore } from "./store-provider";
+import { ProductCard } from "@/components/product/product-card";
+import { useStore } from "@/components/providers/store-provider";
 
 const nav = [
   { id: "overview", label: "Overview", icon: Home }, { id: "orders", label: "My orders", icon: Package },

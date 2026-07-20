@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, ChevronRight, Gift, Heart, Minus, PackageCheck, Plus, ShieldCheck, ShoppingBag, Sparkles, Tag, Trash2, Truck } from "lucide-react";
 import { formatPrice, products } from "@/lib/catalog";
-import { useStore } from "@/components/store-provider";
-import { ProductCard } from "@/components/product-card";
+import { useStore } from "@/components/providers/store-provider";
+import { ProductCard } from "@/components/product/product-card";
 import { useState } from "react";
 
 export default function CartPage() {

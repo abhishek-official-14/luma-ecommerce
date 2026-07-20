@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowLeft, BadgeCheck, Banknote, Building2, Check, ChevronDown, CircleDollarSign, CreditCard, Landmark, LockKeyhole, MapPin, PackageCheck, ShieldCheck, Smartphone, Truck, WalletCards } from "lucide-react";
-import { useStore } from "@/components/store-provider";
+import { useStore } from "@/components/providers/store-provider";
 import { formatPrice } from "@/lib/catalog";
 
 const paymentMethods = [
