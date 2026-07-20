@@ -1,0 +1,12 @@
+# Node.js dependencies
+node_modules/
+
+# Next.js build output
+.next/
+
+# Optional: logs and environment files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.env

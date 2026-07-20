@@ -1,0 +1,28 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowRight, BadgeCheck, ChevronRight, Gift, Heart, Minus, PackageCheck, Plus, ShieldCheck, ShoppingBag, Sparkles, Tag, Trash2, Truck } from "lucide-react";
+import { formatPrice, products } from "@/lib/catalog";
+import { useStore } from "@/components/store-provider";
+import { ProductCard } from "@/components/product-card";
+import { useState } from "react";
+
+export default function CartPage() {
+  const { cart, cartTotal, removeFromCart, updateQuantity, toggleWishlist, notify } = useStore();
+  const [coupon, setCoupon] = useState("");
+  const [couponApplied, setCouponApplied] = useState(false);
+  const discount = couponApplied ? Math.min(1000, cartTotal * .1) : 0;
+  const shipping = cartTotal >= 999 || cart.length === 0 ? 0 : 99;
+
+  if (!cart.length) return <main className="shell empty-cart"><div><ShoppingBag /><h1>Your bag is waiting</h1><p>Thoughtful finds look even better together. Start with our customer favourites.</p><Link href="/shop" className="primary-button">Explore the collection <ArrowRight /></Link></div><section><div className="section-heading"><div><p className="eyebrow">A beautiful place to begin</p><h2>Trending right now</h2></div></div><div className="product-grid">{products.slice(0,4).map((product) => <ProductCard key={product.id} product={product} />)}</div></section></main>;
+
+  return <main className="cart-page shell">
+    <nav className="breadcrumbs"><Link href="/">Home</Link><span>›</span><strong>Shopping bag</strong></nav>
+    <div className="cart-title"><div><h1>Your shopping bag</h1><p>{cart.reduce((sum,line) => sum + line.quantity, 0)} items · Reserved for 30 minutes</p></div><Link href="/shop">Continue shopping <ArrowRight /></Link></div>
+    <div className="free-shipping"><Truck /><div><strong>You&apos;ve unlocked free express delivery</strong><span><i /></span><small>Arrives as early as tomorrow</small></div><BadgeCheck /></div>
+    <div className="cart-layout"><section className="cart-items"><div className="cart-items-head"><span>Product</span><span>Quantity</span><span>Total</span></div>{cart.map((line) => <article className="cart-line" key={`${line.product.id}-${line.size}`}><Link className="cart-line-image" href={`/product/${line.product.slug}`}><img src={line.product.image} alt={line.product.name} />{line.product.badge && <span>{line.product.badge}</span>}</Link><div className="cart-line-info"><small>{line.product.brand}</small><Link href={`/product/${line.product.slug}`}>{line.product.name}</Link><p>{line.size && `Size: ${line.size}`} {line.color && " · Selected colour"}</p><span className="line-stock"><i /> In stock · Delivery by tomorrow</span><div><button onClick={() => { toggleWishlist(line.product.id); removeFromCart(line.product.id); }}><Heart /> Save for later</button><button onClick={() => removeFromCart(line.product.id)}><Trash2 /> Remove</button></div></div><div className="line-quantity"><button onClick={() => line.quantity === 1 ? removeFromCart(line.product.id) : updateQuantity(line.product.id, line.quantity - 1)}><Minus /></button><span>{line.quantity}</span><button onClick={() => updateQuantity(line.product.id, line.quantity + 1)}><Plus /></button></div><div className="line-price"><strong>{formatPrice(line.product.price * line.quantity)}</strong><s>{formatPrice(line.product.originalPrice * line.quantity)}</s><span>You save {formatPrice((line.product.originalPrice - line.product.price) * line.quantity)}</span></div></article>)}</section>
+      <aside className="order-summary"><h2>Order summary</h2><div className="coupon-box"><Tag /><span><strong>Have a coupon?</strong><small>Save more on this order</small></span><ChevronRight /></div><form onSubmit={(event) => { event.preventDefault(); if (coupon) { setCouponApplied(true); notify("WELCOME10 applied — you saved more!"); } }}><input value={coupon} onChange={(event) => setCoupon(event.target.value.toUpperCase())} placeholder="Enter coupon code" /><button>Apply</button></form>{couponApplied && <p className="coupon-success"><BadgeCheck /> WELCOME10 applied</p>}<div className="summary-lines"><p><span>Bag total</span><strong>{formatPrice(cartTotal)}</strong></p><p><span>Discount</span><strong className="green">− {formatPrice(discount)}</strong></p><p><span>Delivery</span><strong className="green">FREE</strong></p><p><span>Estimated tax</span><strong>Included</strong></p></div><div className="summary-total"><span><strong>Total</strong><small>Inclusive of all taxes</small></span><strong>{formatPrice(cartTotal - discount + shipping)}</strong></div><p className="summary-saving">You save {formatPrice(cart.reduce((sum,line) => sum + (line.product.originalPrice - line.product.price) * line.quantity, 0) + discount)} on this order</p><Link className="checkout-button" href="/checkout">Proceed securely <ArrowRight /></Link><div className="summary-payment"><ShieldCheck /><span><strong>Secure checkout</strong><small>UPI · Cards · Net banking · COD · EMI</small></span></div><button className="gift-option"><Gift /><span><strong>This is a gift</strong><small>Add gift wrap and a personal note</small></span><ChevronRight /></button></aside>
+    </div>
+    <section className="cart-reassurance"><div><PackageCheck /><p><strong>Easy 14-day returns</strong><span>Free pickup from your doorstep</span></p></div><div><ShieldCheck /><p><strong>Purchase protected</strong><span>Verified sellers and authentic products</span></p></div><div><Sparkles /><p><strong>Luma reward points</strong><span>Earn {Math.round(cartTotal / 100)} points on this order</span></p></div></section>
+  </main>;
+}
